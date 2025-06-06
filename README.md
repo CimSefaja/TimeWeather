@@ -2,8 +2,8 @@
 Personal Time/Weather
 
 Install:
-take the s_timeWeather folder to your repository
-add ensure s_timeWeather to your server.cfg
+take the timeWeather folder to your repository
+add ensure timeWeather to your server.cfg
 make sure VSync is removed from your server, or any other script that could interfere with the script
 
 Simple script to change time and weather through commands 
