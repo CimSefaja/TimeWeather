@@ -8,11 +8,10 @@ Allows players to change their own time and weather without affecting others.
 ## Installation
 
 1. Copy the `timeWeather` folder into your `resources` directory.  
-2. Add the following line to your `server.cfg`:
 
+2. Make sure **VSync** is removed from your server or any other script that could interfere with this one.
 
-3. Make sure **VSync** is removed from your server or any other script that could interfere with this one.
-
+3. Start the script
 ---
 
 ## Features
@@ -44,6 +43,6 @@ Allows players to change their own time and weather without affecting others.
 ## Usage
 
 - Type the command in chat or console to change your personal time or weather.  
-- Works instantly and does not affect other players.  
+- Completely standalone.  
 
 ---
