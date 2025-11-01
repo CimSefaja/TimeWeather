@@ -40,6 +40,12 @@ Allows players to change their own time and weather without affecting others.
 
 ---
 
+## Support
+
+Need help or want to chat with other users? Join our Discord: [Click here to join](https://discord.gg/H7DUpKpDvw)  
+
+---
+
 ## Usage
 
 - Type the command in chat or console to change your personal time or weather.  
