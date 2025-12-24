@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="menu">
+        <h2>Weather & Time</h2>
+
+        <div class="section">
+            <button onclick="setTime(6)">Morning</button>
+            <button onclick="setTime(12)">Day</button>
+            <button onclick="setTime(19)">Evening</button>
+            <button onclick="setTime(23)">Night</button>
+        </div>
+
+        <div class="section">
+            <button onclick="setWeather('clear')">Sunny</button>
+            <button onclick="setWeather('extrasunny')">Extra Sunny</button>
+            <button onclick="setWeather('thunder')">Rain</button>
+            <button onclick="setWeather('xmas')">Xmas</button>
+        </div>
+
+        <button class="close" onclick="closeUI()">Close</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
