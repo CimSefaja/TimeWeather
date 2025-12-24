@@ -75,15 +75,15 @@ RegisterCommand(Config.Xmas, function()
 end)
 
 
-RegisterCommand("weatherui", function()
+RegisterCommand(Config.WeatherMenu, function()
     uiOpen = not uiOpen
     SetNuiFocus(uiOpen, uiOpen)
-
     SendNUIMessage({
         action = "toggle",
         state = uiOpen
     })
 end)
+
 
 
 RegisterNUICallback("setTime", function(data, cb)
@@ -116,4 +116,5 @@ CreateThread(function()
         end
     end
 end)
+
 
