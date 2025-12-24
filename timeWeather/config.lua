@@ -9,6 +9,8 @@
 
 Config = {}
 
+Config.WeatherMenu = "weatherui" -- open menu command
+
 Config.ExtraSunny   = "esunny" 
 Config.Sunny        = "sunny" 
 Config.Rainy        = "rain" 
@@ -23,4 +25,5 @@ Config.DayTime      = 12
 Config.NightTime    = 23 
 Config.MorningTime  = 6 
 Config.EveningTime  = 19 
+
 
