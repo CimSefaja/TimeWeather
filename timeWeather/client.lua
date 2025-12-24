@@ -10,15 +10,37 @@
 
 local personalTimeEnabled = false
 local personalHour = 12
+local uiOpen = false
 
 local function SetPersonalTime(hour)
     personalHour = hour
     personalTimeEnabled = true
+
+    SetResourceKvpInt("personal_time", hour)
 end
 
 local function SetPersonalWeather(weatherType)
     SetWeatherTypeNowPersist(weatherType)
+
+    SetResourceKvp("personal_weather", weatherType)
 end
+
+
+CreateThread(function()
+    Wait(500)
+
+    local savedTime = GetResourceKvpInt("personal_time")
+    local savedWeather = GetResourceKvpString("personal_weather")
+
+    if savedTime and savedTime > 0 then
+        SetPersonalTime(savedTime)
+    end
+
+    if savedWeather then
+        SetPersonalWeather(savedWeather)
+    end
+end)
+
 
 RegisterCommand(Config.Day, function()
     SetPersonalTime(Config.DayTime)
@@ -52,9 +74,43 @@ RegisterCommand(Config.Xmas, function()
     SetPersonalWeather("xmas")
 end)
 
+
+RegisterCommand("weatherui", function()
+    uiOpen = not uiOpen
+    SetNuiFocus(uiOpen, uiOpen)
+
+    SendNUIMessage({
+        action = "toggle",
+        state = uiOpen
+    })
+end)
+
+
+RegisterNUICallback("setTime", function(data, cb)
+    SetPersonalTime(data.hour)
+    cb("ok")
+end)
+
+RegisterNUICallback("setWeather", function(data, cb)
+    SetPersonalWeather(data.weather)
+    cb("ok")
+end)
+
+RegisterNUICallback("close", function(_, cb)
+    uiOpen = false
+    SetNuiFocus(false, false)
+
+    SendNUIMessage({
+        action = "toggle",
+        state = false
+    })
+
+    cb("ok")
+end)
+
 CreateThread(function()
     while true do
-        Citizen.Wait(1000)
+        Wait(1000)
         if personalTimeEnabled then
             NetworkOverrideClockTime(personalHour, 0, 0)
         end
