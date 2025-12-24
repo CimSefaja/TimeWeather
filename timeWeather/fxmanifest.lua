@@ -9,20 +9,23 @@
 
 
 
-fx_version "cerulean"
+fx_version 'cerulean'
+game 'gta5'
 
-description "Personal Time/Weather"
+description "PersonalTimeAndWeather"
 author "Sefaja"
-version '1.0.'
+version '2.0'
 
-games {
-  "gta5",
-}
+ui_page 'html/index.html'
 
-shared_scripts {
-  'config.lua'
+files {
+    'html/index.html',
+    'html/style.css',
+    'html/script.js'
 }
 
 client_scripts {
-  'client.lua'
+    'config.lua',
+    'client.lua'
 }
+
